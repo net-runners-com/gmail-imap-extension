@@ -7,8 +7,7 @@
     "storage"
   ],
   "host_permissions": [
-    "https://mail.jmy-nexus.com/*",
-    "https://mail.hiroto-ai-botch.net/*"
+    "https://mail.jmy-nexus.com/*"
   ],
   "background": {
     "service_worker": "background.js"
