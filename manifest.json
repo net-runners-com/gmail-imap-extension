@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "Mailrelay for Gmail",
+  "version": "1.0.0",
+  "description": "Gmail の作成画面から独自ドメインのアドレスで送信する。差出人の切り替えと送信ボタンを追加する。",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://mail.jmy-nexus.com/*",
+    "https://mail.hiroto-ai-botch.net/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "options_page": "options.html",
+  "action": {
+    "default_popup": "options.html",
+    "default_title": "Mailrelay"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://mail.google.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "content.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "optional_host_permissions": [
+    "https://*/*"
+  ]
+}

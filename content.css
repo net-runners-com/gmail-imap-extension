@@ -1,0 +1,347 @@
+/* Our compose window: Gmail's geometry and control set, in green so it is never mistaken for
+   Gmail's own send path. */
+.mr-panel {
+  position: fixed;
+  right: 16px;
+  bottom: 0;
+  z-index: 2147483000;
+  display: flex;
+  flex-direction: column;
+  width: min(35rem, calc(100vw - 32px));
+  height: min(38rem, calc(100vh - 64px));
+  background: #fff;
+  border-radius: 8px 8px 0 0;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.28);
+  font: 14px/1.5 "Google Sans", Roboto, -apple-system, BlinkMacSystemFont, "Hiragino Sans", sans-serif;
+  color: #202124;
+}
+
+.mr-panel.mr-min {
+  height: auto;
+}
+
+.mr-panel.mr-min .mr-form,
+.mr-panel.mr-min .mr-foot {
+  display: none;
+}
+
+.mr-head {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 12px;
+  background: #0b8043;
+  color: #fff;
+  border-radius: 8px 8px 0 0;
+  flex: 0 0 auto;
+}
+
+.mr-title {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.mr-spacer {
+  flex: 1 1 auto;
+}
+
+.mr-icon {
+  border: 0;
+  background: transparent;
+  color: #fff;
+  font-size: 0.9rem;
+  line-height: 1;
+  padding: 4px 6px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.mr-icon:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.mr-form {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+  padding: 0 16px;
+}
+
+.mr-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid #f1f3f4;
+  flex: 0 0 auto;
+}
+
+.mr-label {
+  flex: 0 0 3.2rem;
+  color: #5f6368;
+  font-size: 0.8rem;
+}
+
+.mr-input,
+.mr-from {
+  flex: 1 1 auto;
+  min-width: 0;
+  border: 0;
+  outline: none;
+  padding: 9px 0;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+}
+
+.mr-cc {
+  border: 0;
+  background: transparent;
+  color: #5f6368;
+  font: inherit;
+  font-size: 0.8rem;
+  cursor: pointer;
+  padding: 0 2px;
+}
+
+.mr-cc:hover {
+  color: #202124;
+}
+
+/* Formatting row, revealed by Aa exactly as Gmail reveals its own. */
+.mr-format {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex-wrap: wrap;
+  padding: 6px 0;
+  border-bottom: 1px solid #f1f3f4;
+  flex: 0 0 auto;
+}
+
+.mr-body {
+  flex: 1 1 auto;
+  min-height: 8rem;
+  overflow-y: auto;
+  outline: none;
+  padding: 12px 0;
+  font: inherit;
+  color: inherit;
+}
+
+.mr-body blockquote {
+  margin: 0 0 0 12px;
+  padding-left: 12px;
+  border-left: 2px solid #dadce0;
+  color: #5f6368;
+}
+
+.mr-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 0 0 8px;
+  flex: 0 0 auto;
+}
+
+.mr-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  max-width: 14rem;
+  padding: 4px 8px;
+  border: 1px solid #dadce0;
+  border-radius: 14px;
+  font-size: 0.78rem;
+}
+
+.mr-chip > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mr-chip-x,
+.mr-emoji-btn,
+.mr-menu-item {
+  border: 0;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+}
+
+.mr-chip-x {
+  color: #5f6368;
+  font-size: 0.7rem;
+}
+
+.mr-emoji {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 6px 0;
+  border-top: 1px solid #f1f3f4;
+  flex: 0 0 auto;
+}
+
+.mr-emoji-btn {
+  font-size: 1.1rem;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.mr-emoji-btn:hover {
+  background: #f1f3f4;
+}
+
+.mr-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-top: 1px solid #f1f3f4;
+  padding: 4px 0;
+  flex: 0 0 auto;
+}
+
+.mr-menu-item {
+  padding: 6px 4px;
+  color: #202124;
+  font-size: 0.85rem;
+}
+
+.mr-menu-item:hover {
+  color: #0b8043;
+}
+
+.mr-hidden-file {
+  display: none;
+}
+
+.mr-foot {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex-wrap: wrap;
+  padding: 10px 16px 14px;
+  border-top: 1px solid #f1f3f4;
+  flex: 0 0 auto;
+}
+
+.mr-send {
+  border: 0;
+  border-radius: 18px;
+  background: #0b8043;
+  color: #fff;
+  font: inherit;
+  font-weight: 500;
+  padding: 9px 24px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.mr-send:hover {
+  background: #0a7239;
+}
+
+.mr-send:disabled {
+  background: #7a8b81;
+  cursor: default;
+}
+
+/* Toolbar icons: same footprint as Gmail's, so the row reads the same way. */
+.mr-tool {
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 0.95rem;
+  line-height: 1;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  color: #5f6368;
+  cursor: pointer;
+}
+
+.mr-tool:hover {
+  background: #f1f3f4;
+  color: #202124;
+}
+
+.mr-status {
+  color: #b3261e;
+  font-size: 0.78rem;
+  flex: 1 1 100%;
+  min-height: 1.2em;
+}
+
+.mr-toast {
+  position: fixed;
+  left: 24px;
+  bottom: 24px;
+  z-index: 2147483647;
+  max-width: 28rem;
+  padding: 12px 18px;
+  border-radius: 6px;
+  background: #202124;
+  color: #fff;
+  font: 13px/1.6 "Google Sans", Roboto, -apple-system, BlinkMacSystemFont, "Hiragino Sans", sans-serif;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.mr-toast-error {
+  background: #b3261e;
+}
+
+@media (prefers-color-scheme: dark) {
+  .mr-panel {
+    background: #2d2e30;
+    color: #e8eaed;
+  }
+  .mr-row,
+  .mr-foot,
+  .mr-format,
+  .mr-emoji,
+  .mr-menu {
+    border-color: #3c4043;
+  }
+  .mr-label,
+  .mr-tool,
+  .mr-cc {
+    color: #9aa0a6;
+  }
+  .mr-from {
+    background: #2d2e30;
+    color: #e8eaed;
+  }
+  .mr-tool:hover,
+  .mr-emoji-btn:hover {
+    background: #3c4043;
+    color: #e8eaed;
+  }
+  .mr-menu-item {
+    color: #e8eaed;
+  }
+  .mr-chip {
+    border-color: #5f6368;
+  }
+}
+
+/* Gmail's own send button, armed to go through Mailrelay (reply / forward / draft windows). */
+div[role="button"].mailrelay-armed {
+  background-color: #0b8043 !important;
+  border-color: #0b8043 !important;
+}
+
+div[role="button"].mailrelay-armed:hover {
+  background-color: #0a7239 !important;
+}
+
+div[role="button"].mailrelay-armed::after {
+  content: " · Mailrelay";
+  font-weight: 500;
+}
+
+/* The entries added to Gmail's 差出人 menu. */
+[role="menuitem"].mailrelay-menuitem {
+  color: #0b8043;
+}
