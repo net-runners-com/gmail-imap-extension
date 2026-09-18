@@ -61,6 +61,8 @@ chrome.runtime.onMessage.addListener((msg, _sender, reply) => {
           subject: msg.subject,
           html: msg.html,
           text: msg.text,
+          // The compose panel reads picked files into base64; /api/send takes them as they are.
+          attachments: msg.attachments,
         }),
       });
       const body = await res.json().catch(() => ({}));

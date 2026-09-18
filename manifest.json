@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Mailrelay for Gmail",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Gmail の作成画面から独自ドメインのアドレスで送信する。差出人の切り替えと送信ボタンを追加する。",
   "permissions": [
     "storage"

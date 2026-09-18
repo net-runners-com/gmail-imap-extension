@@ -344,7 +344,8 @@ function openPanel() {
   send.type = "button";
   const status = el("span", "mr-status");
 
-  const loginOf = () => (senders[Number(from.value)] ?? senders[0])?.login;
+  const chosen = () => senders[Number(from.value)] ?? senders[0];
+  const loginOf = () => chosen()?.login;
   const signature = accounts.find((a) => a.address === loginOf())?.signature || "";
   const sigButton = tool("🖊", "署名を挿入", () => {
     const sig = accounts.find((a) => a.address === loginOf())?.signature;
@@ -394,8 +395,12 @@ function openPanel() {
     send.disabled = true;
     status.textContent = "送信中…";
     try {
+      // from.value is the index into `senders`, not an address: the account that authenticates is
+      // the sender's login, and the address that goes in From is the one chosen here.
+      const sender = senders[Number(from.value)] ?? senders[0];
       const res = await post({
-        address: from.value,
+        address: sender.login,
+        from: sender.address,
         to: to.value,
         cc: cc.value,
         bcc: bcc.value,
