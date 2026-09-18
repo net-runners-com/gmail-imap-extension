@@ -175,6 +175,13 @@
   font-size: 0.7rem;
 }
 
+/* Every toggled part of the panel sets the `hidden` attribute, and a class with `display: flex`
+   outranks the attribute's own `display: none`. Without this the Cc/Bcc rows, the formatting bar,
+   the emoji row and the ⋮ menu are all permanently open and the menu covers the send button. */
+.mr-panel [hidden] {
+  display: none !important;
+}
+
 .mr-emoji {
   display: flex;
   flex-wrap: wrap;

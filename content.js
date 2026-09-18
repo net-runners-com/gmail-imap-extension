@@ -122,7 +122,17 @@ function closeCompose(box) {
 }
 
 async function post(payload) {
-  return chrome.runtime.sendMessage({ type: "send", ...payload });
+  try {
+    return await chrome.runtime.sendMessage({ type: "send", ...payload });
+  } catch (e) {
+    // The script in an open Gmail tab is orphaned when the extension is reloaded or updated.
+    // Chrome's own wording ("Extension context invalidated.") does not say what to do about it.
+    const m = e instanceof Error ? e.message : String(e);
+    if (/context invalidated|Extension context|Receiving end does not exist/i.test(m)) {
+      throw new Error("拡張機能が更新されました。Gmail のタブを再読み込みしてから、もう一度送信してください。");
+    }
+    throw e;
+  }
 }
 
 /* ---------- our own compose panel (作成) ---------- */
